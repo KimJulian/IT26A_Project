@@ -8,7 +8,7 @@
  * @author HP
  */
 public class LoginForm extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginForm.class.getName());
 
     /**
@@ -51,6 +51,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel3.setText("Password:");
 
         btnLogin.setText("Login");
+        btnLogin.addActionListener(this::btnLoginActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,8 +100,35 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtUserActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String user = txtUser.getText();
+        String pass = txtPass.getText();
+
+        if (user.isEmpty() || pass.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter both Username and Password");
+        } else {
+            try {
+                java.sql.Connection conn = DBConnection.connect();
+                String sql = "SELECT * FROM users WHERE username=? AND password=?";
+                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                pst.setString(1, user);
+                pst.setString(2, pass);
+
+                java.sql.ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Login Successful! Welcome " + user);
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Invalid Username or Password", "Login Failed", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
