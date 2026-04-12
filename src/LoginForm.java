@@ -34,8 +34,10 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         txtPass = new javax.swing.JPasswordField();
-        btnGoToRegister = new javax.swing.JButton();
+        btbRegisterHere = new javax.swing.JButton();
+        btnLogin2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnGoToRegister = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -47,30 +49,38 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("SYSTEM LOGIN");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, 63));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, 63));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Username:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 154, -1, -1));
 
         txtUser.addActionListener(this::txtUserActionPerformed);
-        jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 118, -1));
+        jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 118, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, 20));
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(this::btnLoginActionPerformed);
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 621, -1, -1));
-        jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 118, -1));
+        jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 118, -1));
+
+        btbRegisterHere.setText("Register Here");
+        btbRegisterHere.addActionListener(this::btbRegisterHereActionPerformed);
+        jPanel1.add(btbRegisterHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
+
+        btnLogin2.setText("Login");
+        btnLogin2.addActionListener(this::btnLogin2ActionPerformed);
+        jPanel1.add(btnLogin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 250, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sakura2.jpg"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 400));
 
         btnGoToRegister.setText("Register Here");
         btnGoToRegister.addActionListener(this::btnGoToRegisterActionPerformed);
         jPanel1.add(btnGoToRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 675, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sakura2.jpg"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 400));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 400));
 
@@ -114,6 +124,38 @@ public class LoginForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnGoToRegisterActionPerformed
 
+    private void btbRegisterHereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbRegisterHereActionPerformed
+        new RegisterForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btbRegisterHereActionPerformed
+
+    private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
+        String user = txtUser.getText();
+        String pass = txtPass.getText();
+
+        if (user.isEmpty() || pass.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter both Username and Password");
+        } else {
+            try {
+                java.sql.Connection conn = DBConnection.connect();
+                String sql = "SELECT * FROM users WHERE username=? AND password=?";
+                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                pst.setString(1, user);
+                pst.setString(2, pass);
+
+                java.sql.ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Login Successful! Welcome " + user);
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Invalid Username or Password", "Login Failed", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnLogin2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -140,8 +182,10 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btbRegisterHere;
     private javax.swing.JButton btnGoToRegister;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLogin2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
