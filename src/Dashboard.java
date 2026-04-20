@@ -39,12 +39,12 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("WELCOME TO DASHBOARD");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 52));
 
-        btnLogout.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        btnLogout.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(this::btnLogoutActionPerformed);
         jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 18, -1, -1));

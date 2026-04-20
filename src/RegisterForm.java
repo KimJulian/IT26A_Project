@@ -40,32 +40,33 @@ public class RegisterForm extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 102, 102));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel1.setText("Registration");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 102));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabel2.setText("User:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 40, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 40, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabel3.setText("Password:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
         txtRegPass.addActionListener(this::txtRegPassActionPerformed);
-        getContentPane().add(txtRegPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 100, -1));
+        getContentPane().add(txtRegPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 140, -1));
 
         txtRegUser.setToolTipText("");
-        getContentPane().add(txtRegUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 100, -1));
+        txtRegUser.addActionListener(this::txtRegUserActionPerformed);
+        getContentPane().add(txtRegUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 140, -1));
 
-        btnRegister.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        btnRegister.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         btnRegister.setText("Register");
         btnRegister.addActionListener(this::btnRegisterActionPerformed);
         getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, -1, -1));
 
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnBack.setText("<-");
+        btnBack.setText("←");
         btnBack.addActionListener(this::btnBackActionPerformed);
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 13, 50, -1));
 
@@ -109,6 +110,10 @@ public class RegisterForm extends javax.swing.JFrame {
         new LoginForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtRegUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRegUserActionPerformed
 
     /**
      * @param args the command line arguments
