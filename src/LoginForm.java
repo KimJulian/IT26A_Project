@@ -16,6 +16,8 @@ public class LoginForm extends javax.swing.JFrame {
      */
     public LoginForm() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -77,11 +79,13 @@ public class LoginForm extends javax.swing.JFrame {
 
         btbRegisterHere.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         btbRegisterHere.setText("Register Here");
+        btbRegisterHere.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btbRegisterHere.addActionListener(this::btbRegisterHereActionPerformed);
         jPanel1.add(btbRegisterHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 120, -1));
 
         btnLogin2.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         btnLogin2.setText("Login");
+        btnLogin2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin2.addActionListener(this::btnLogin2ActionPerformed);
         jPanel1.add(btnLogin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 60, -1));
 

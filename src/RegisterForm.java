@@ -16,6 +16,8 @@ public class RegisterForm extends javax.swing.JFrame {
      */
     public RegisterForm() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -62,11 +64,13 @@ public class RegisterForm extends javax.swing.JFrame {
 
         btnRegister.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         btnRegister.setText("Register");
+        btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegister.addActionListener(this::btnRegisterActionPerformed);
         getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, -1, -1));
 
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("←");
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addActionListener(this::btnBackActionPerformed);
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 13, 50, -1));
 

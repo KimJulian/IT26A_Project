@@ -16,6 +16,8 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -46,6 +48,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         btnLogout.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         btnLogout.setText("Logout");
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogout.addActionListener(this::btnLogoutActionPerformed);
         jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 18, -1, -1));
 
